@@ -1,0 +1,27 @@
+﻿@model WebApplication3.Models.Domain.Publisher
+@{
+    ViewData["Title"] = "Add";
+}
+
+<div  class="container pt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Add Publisher</h1>
+            <form asp-action="Add" method="post">
+                <div class="form-group">
+                    <lable asp-for="PubliserName">PubliserName</lable>
+                    <input type="text" class="form-controll" asp-for="PubliserName"/>
+                    <span asp-validation-for="PubliserName" class="text-danger"></span>
+                </div>
+                @if (TempData["msg"] != null)
+                {
+                    <div class="form-group">
+                        @TempData["msg"]
+                    </div>
+                }
+                <button type="submit" class="btn btn-dark"><i class="bi bi-save"></i></button>
+                <a href="/Publisher/GetAll" class="btn btn-primary"><i class="bi bi-list"></i></a>
+            </form>
+        </div>
+    </div>
+</div>

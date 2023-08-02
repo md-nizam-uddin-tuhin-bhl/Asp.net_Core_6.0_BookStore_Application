@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebApplication3.Models.Domain.Book>
+@{
+    ViewData["Title"] = "GetAll";
+}
+
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>List of Book</h1>
+            <td><a class="btn btn-dark" href="/Book/Add">Add More</a></td>
+            <br /><br />
+            <table class="table table-striped table-bordered table-dark">
+                <tr>
+                    <th>Title</th>
+                    <th>GenreName</th>
+                    <th>TotalPage</th>
+                    <th>AuthorName</th>
+                    <th>PublisherName</th>
+                    <th class="text-center">Action</th>
+                    <th class="text-center">Action</th>
+                </tr>
+                <tbody>
+                    @foreach(var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@item.GenreName</td>
+                            <td>@item.TotalPage</td>
+                            <td>@item.AuthorName</td>
+                            <td>@item.PublisherName</td>
+                            <td class="text-center"><a class="btn btn-success" href="/Book/Update?id=@item.Id"><i class="bi bi-pen"></i></a></td>
+                            <td class="text-center"><a class="btn btn-danger" href="/Book/Delete?id=@item.Id" onclick="return window.confirm('Are you Sure Delete ?')"><i class="bi bi-trash"></i></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>
+
